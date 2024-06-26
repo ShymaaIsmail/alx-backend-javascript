@@ -1,6 +1,6 @@
 export default function getFullResponseFromAPI(success) {
   const firstPromise = Promise;
-  if (success) {
+  if (success === true) {
     return firstPromise.resolve({
       status: 200,
       body: 'Success',
