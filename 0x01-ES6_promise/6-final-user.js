@@ -10,8 +10,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
           status: result.status,
           value: result.value !== undefined ? result.value : result.reason.message,
         });
-        console.log(finalResult);
-        return finalResult;
       });
+      return finalResult;
     });
 }
