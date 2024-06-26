@@ -8,9 +8,11 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
       results.forEach((result) => {
         finalResult.push({
           status: result.status,
-          value: result.value !== undefined ? result.value : result.reason.message,
+          value: result.value !== undefined ? result.value : `Error: ${result.reason.message}`
+          ,
         });
       });
+      console.log(finalResult);
       return finalResult;
     });
 }
