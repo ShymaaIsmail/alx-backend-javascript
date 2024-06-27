@@ -13,6 +13,7 @@ try {
 
 try {
   const c2 = new HolbertonCourse('ES6', '1', ['Bob', 'Jane']);
+  console.log(c2);
 } catch (err) {
   console.log(err);
 }
