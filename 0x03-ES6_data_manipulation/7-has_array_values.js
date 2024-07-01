@@ -1,5 +1,5 @@
 const hasValuesFromArray = (set, array) => {
-  const arrExistInSet = (new Set(array)).isSubsetOf(set);
+  const arrExistInSet = set.isSupersetOf((new Set(array)));
   return arrExistInSet;
 };
 export default hasValuesFromArray;
