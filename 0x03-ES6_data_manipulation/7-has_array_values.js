@@ -1,5 +1,2 @@
-const hasValuesFromArray = (set, array) => {
-  const arrExistInSet = set.isSupersetOf((new Set(array)));
-  return arrExistInSet;
-};
+const hasValuesFromArray = (set, array) => array.every((element) => set.has(element));
 export default hasValuesFromArray;
