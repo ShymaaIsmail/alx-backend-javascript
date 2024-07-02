@@ -2,7 +2,7 @@ const cleanSet = (set, startString) => {
   let cleanText = '';
   if (typeof startString === 'string' && startString.length > 0) {
     cleanText = [...set].reduce((accumulator, currentValue) => {
-      if (currentValue.startsWith(startString)) {
+      if (typeof currentValue === 'string' && currentValue.startsWith(startString)) {
         const cleanedValue = currentValue.replace(startString, '');
         if (accumulator.length === 0) {
           return cleanedValue;
