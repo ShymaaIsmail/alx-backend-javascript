@@ -2,11 +2,11 @@ const fs = require('fs').promises;
 
 function readDatabase(filePath) {
   return fs.readFile(filePath, 'utf8')
-    .then(data => {
+    .then((data) => {
       const lines = data.split('\n');
       const result = {};
 
-      lines.forEach(line => {
+      lines.forEach((line) => {
         const [firstName, field] = line.split(',');
         if (firstName && field) {
           const trimmedField = field.trim();
