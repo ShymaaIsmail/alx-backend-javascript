@@ -1,8 +1,2 @@
-const displayMessage = (message) => {
-  if (message) {
-    process.stdout.write(`${message}\n`);
-  } else {
-    process.stdout.write('');
-  }
-};
+const displayMessage = (message) => console.log(message);
 module.exports = displayMessage;
