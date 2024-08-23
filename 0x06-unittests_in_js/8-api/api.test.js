@@ -3,22 +3,21 @@ const { expect } = require('chai');
 const app = require('./api'); // Import the Express app
 const port = 7865;
 
-// Helper function to test the server response
-const getRequest = (url, callback) => {
-  request(url, (error, response, body) => {
-    if (error) return callback(error);
-    callback(null, response, body);
-  });
-};
-
 describe('Index page', () => {
+  let server;
+
   before((done) => {
-    // Make sure the server is running
-    app.listen(port, done);
+    // Start the server before tests
+    server = app.listen(port, done);
+  });
+
+  after((done) => {
+    // Close the server after tests
+    server.close(done);
   });
 
   it('should return status code 200', (done) => {
-    getRequest(`http://localhost:${port}`, (err, res) => {
+    request(`http://localhost:${port}`, (err, res) => {
       if (err) return done(err);
       expect(res.statusCode).to.equal(200);
       done();
@@ -26,7 +25,7 @@ describe('Index page', () => {
   });
 
   it('should return the correct message', (done) => {
-    getRequest(`http://localhost:${port}`, (err, res, body) => {
+    request(`http://localhost:${port}`, (err, res, body) => {
       if (err) return done(err);
       expect(body).to.equal('Welcome to the payment system');
       done();
