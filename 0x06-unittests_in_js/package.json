@@ -1,0 +1,19 @@
+{
+  "name": "alx-backend-javascript",
+  "version": "1.0.0",
+  "description": "Unit testing in JavaScript with Mocha, Chai, and Sinon",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "sinon": "^7.5.0"
+  }
+}
