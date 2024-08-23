@@ -6,8 +6,12 @@ describe('getPaymentTokenFromAPI', () => {
     it('should resolve with a successful response when success is true', (done) => {
         getPaymentTokenFromAPI(true)
             .then((response) => {
-                expect(response).to.deep.equal({ data: 'Successful response from the API' });
-                done(); // Indicate that the test is complete
+                try {
+                    expect(response).to.deep.equal({ data: 'Successful response from the API' });
+                    done(); // Indicate that the test is complete
+                } catch (error) {
+                    done(error); // Pass any assertion errors to done
+                }
             })
             .catch(done); // Handle any unexpected errors
     });
@@ -15,9 +19,12 @@ describe('getPaymentTokenFromAPI', () => {
     it('should not resolve when success is false', (done) => {
         getPaymentTokenFromAPI(false)
             .then((response) => {
-                // Expect no response or resolve
-                expect(response).to.be.undefined;
-                done();
+                try {
+                    expect(response).to.be.undefined; // Assuming no response or resolve
+                    done(); // Indicate that the test is complete
+                } catch (error) {
+                    done(error); // Pass any assertion errors to done
+                }
             })
             .catch(done); // Handle any unexpected errors
     });
